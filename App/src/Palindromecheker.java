@@ -1,20 +1,32 @@
-//version - 1.0
-//author - ghoshbabu19
-public class Palindromecheker {
-    static void main() {
-        String appName = "Palindrome Checker Application";
-        String appVersion = "Version 1.0";
+public class UseCase9PalindromeCheckerApp {
 
-        System.out.println("=======================================");
-        System.out.println("Welcome to " + appName);
-        System.out.println(appVersion);
-        System.out.println("=======================================");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready to proceed to palindrome checking...");
-        System.out.println("Exiting application...");
+    // Recursive method to check palindrome
+    public static boolean isPalindrome(String str, int start, int end) {
+
+        // Base condition
+        if (start >= end) {
+            return true;
+        }
+
+        // Check characters at start and end
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
     }
 
     public static void main(String[] args) {
-        main();
+
+        String word = "madam";
+
+        boolean result = isPalindrome(word, 0, word.length() - 1);
+
+        if (result) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is not a Palindrome");
+        }
     }
 }
