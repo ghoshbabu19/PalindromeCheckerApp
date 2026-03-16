@@ -1,20 +1,33 @@
-//version - 1.0
-//author - ghoshbabu19
-public class Palindromecheker {
-    static void main() {
-        String appName = "Palindrome Checker Application";
-        String appVersion = "Version 1.0";
-
-        System.out.println("=======================================");
-        System.out.println("Welcome to " + appName);
-        System.out.println(appVersion);
-        System.out.println("=======================================");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready to proceed to palindrome checking...");
-        System.out.println("Exiting application...");
-    }
+public class UseCase10PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        main();
+
+        // Original string with spaces and mixed case
+        String text = "Madam In Eden Im Adam";
+
+        // Normalize the string: remove spaces and convert to lowercase
+        String normalized = text.replaceAll("\\s+", "").toLowerCase();
+
+        // Check palindrome using two-pointer technique
+        int start = 0;
+        int end = normalized.length() - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println("\"" + text + "\" is a Palindrome (ignoring spaces and case)");
+        } else {
+            System.out.println("\"" + text + "\" is not a Palindrome");
+        }
     }
 }
