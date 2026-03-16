@@ -1,20 +1,39 @@
-//version - 1.0
-//author - ghoshbabu19
-public class Palindromecheker {
-    static void main() {
-        String appName = "Palindrome Checker Application";
-        String appVersion = "Version 1.0";
+import java.util.Deque;
+import java.util.LinkedList;
 
-        System.out.println("=======================================");
-        System.out.println("Welcome to " + appName);
-        System.out.println(appVersion);
-        System.out.println("=======================================");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready to proceed to palindrome checking...");
-        System.out.println("Exiting application...");
-    }
+public class UseCase7PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        main();
+
+        // Original string
+        String word = "madam";
+
+        // Create Deque
+        Deque<Character> deque = new LinkedList<>();
+
+        // Insert characters into deque
+        for (int i = 0; i < word.length(); i++) {
+            deque.addLast(word.charAt(i));
+        }
+
+        boolean isPalindrome = true;
+
+        // Compare front and rear characters
+        while (deque.size() > 1) {
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
+
+            if (front != rear) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is not a Palindrome");
+        }
     }
 }
