@@ -1,20 +1,43 @@
-//version - 1.0
-//author - ghoshbabu19
-public class Palindromecheker {
-    static void main() {
-        String appName = "Palindrome Checker Application";
-        String appVersion = "Version 1.0";
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Stack;
 
-        System.out.println("=======================================");
-        System.out.println("Welcome to " + appName);
-        System.out.println(appVersion);
-        System.out.println("=======================================");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready to proceed to palindrome checking...");
-        System.out.println("Exiting application...");
-    }
+public class UseCase6PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        main();
+
+        // Original string
+        String word = "radar";
+
+        // Create Queue and Stack
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
+
+        // Enqueue and Push characters
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            queue.add(ch);   // Enqueue
+            stack.push(ch);  // Push
+        }
+
+        boolean isPalindrome = true;
+
+        // Compare dequeue and pop characters
+        while (!queue.isEmpty()) {
+            char fromQueue = queue.remove(); // Dequeue
+            char fromStack = stack.pop();    // Pop
+
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is not a Palindrome");
+        }
     }
 }
