@@ -1,20 +1,36 @@
-//version - 1.0
-//author - ghoshbabu19
-public class Palindromecheker {
-    static void main() {
-        String appName = "Palindrome Checker Application";
-        String appVersion = "Version 1.0";
+import java.util.Stack;
 
-        System.out.println("=======================================");
-        System.out.println("Welcome to " + appName);
-        System.out.println(appVersion);
-        System.out.println("=======================================");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready to proceed to palindrome checking...");
-        System.out.println("Exiting application...");
-    }
+public class UseCase5PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        main();
+
+        // Original string
+        String word = "level";
+
+        // Create a stack
+        Stack<Character> stack = new Stack<>();
+
+        // Push characters into stack
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
+        }
+
+        boolean isPalindrome = true;
+
+        // Pop characters and compare
+        for (int i = 0; i < word.length(); i++) {
+            char ch = stack.pop();
+            if (word.charAt(i) != ch) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is not a Palindrome");
+        }
     }
 }
